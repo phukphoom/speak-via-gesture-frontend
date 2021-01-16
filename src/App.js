@@ -1,9 +1,20 @@
 import React from 'react';
+import VideoRecorder from 'react-video-recorder';
 
 const App = () => {
     return (
-        <div className="flex flex-row h-screen justify-center items-center bg-blue-300">
-            <p className="text-6xl font-bold text-blue-900">Initial Project</p>
+        <div className="flex w-full h-screen justify-center items-center bg-gray-800">
+            <div className="flex w-96 h-96">
+                <VideoRecorder
+                    constraints={{
+                        audio: false,
+                        video: true,
+                    }}
+                    renderDisconnectedView={() => {
+                        return <div className="flex text-white fond-bold text-4xl">Disconnected</div>;
+                    }}
+                />
+            </div>
         </div>
     );
 };
