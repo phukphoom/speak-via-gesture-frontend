@@ -1,19 +1,21 @@
 import React from 'react';
-import VideoRecorder from 'react-video-recorder';
+
+import { CameraRecorder, TranslatedDisplay } from './components';
 
 const App = () => {
     return (
-        <div className="flex w-full h-screen justify-center items-center bg-gray-800">
-            <div className="flex w-96 h-96">
-                <VideoRecorder
-                    constraints={{
-                        audio: false,
-                        video: true,
-                    }}
-                    renderDisconnectedView={() => {
-                        return <div className="flex text-white fond-bold text-4xl">Disconnected</div>;
-                    }}
-                />
+        <div className="flex w-full h-screen justify-center items-center bg-gray-800 fixed">
+            <div className="flex flex-col w-96">
+                <div className="flex h-96">
+                    <CameraRecorder />
+                </div>
+                <div className="flex mt-4 h-56">
+                    <TranslatedDisplay
+                        translatedText={
+                            'ตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปลตัวอย่างคำเเปล'
+                        }
+                    />
+                </div>
             </div>
         </div>
     );
