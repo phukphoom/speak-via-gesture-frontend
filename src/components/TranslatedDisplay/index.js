@@ -1,6 +1,15 @@
+import React from "react";
+
 const TranslatedDisplay = ({ translatedText }) => {
+    React.useEffect(() => {
+        playSoundHandler();
+    }, [translatedText]);
+
     const playSoundHandler = () => {
-        console.log("playing Sound");
+        const tts = new SpeechSynthesisUtterance();
+        tts.text = translatedText;
+        tts.lang = "th-TH";
+        speechSynthesis.speak(tts);
     };
     const reloadAppHandler = () => {
         window.location.reload();
