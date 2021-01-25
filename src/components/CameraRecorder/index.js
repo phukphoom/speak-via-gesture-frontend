@@ -26,7 +26,7 @@ const CameraRecorder = ({ setText }) => {
                 const formData = new FormData();
                 formData.append("video", file);
 
-                const res = await fetch(`/upload`, {
+                const res = await fetch(`http://161.246.6.44/upload`, {
                     method: "POST",
                     body: formData,
                 });
