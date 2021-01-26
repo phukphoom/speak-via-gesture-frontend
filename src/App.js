@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from 'react';
 
-import { CameraRecorder, TranslatedDisplay } from "./components";
+import { CameraRecorder, TranslatedDisplay } from './components';
 
 const App = () => {
-    const [text, setText] = React.useState("");
+    const [translatedText, setTranslatedText] = useState('คำเเปล ...');
 
     return (
         <div className="flex w-full h-screen justify-center items-center bg-gray-800 fixed">
             <div className="flex flex-col w-96">
                 <div className="flex h-96">
-                    <CameraRecorder setText={setText} />
+                    <CameraRecorder
+                        onTranslated={(sentence) => {
+                            setTranslatedText(sentence);
+                        }}
+                    />
                 </div>
                 <div className="flex mt-4 h-56">
-                    <TranslatedDisplay translatedText={text} />
+                    <TranslatedDisplay translatedText={translatedText} />
                 </div>
             </div>
         </div>

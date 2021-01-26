@@ -1,13 +1,11 @@
-import VideoRecorder from "react-video-recorder";
+import VideoRecorder from 'react-video-recorder';
 
-import ActionsView from "./ActionsView";
-import DisconnectedView from "./DisconnectedView";
-import ErrorView from "./ErrorView";
-import LoadingView from "./LoadingView";
-import UnsupportView from "./UnsupportedView";
-import VideoInputView from "./VideoInputView";
+import DisconnectedView from './DisconnectedView';
+import ErrorView from './ErrorView';
+import LoadingView from './LoadingView';
+import UnsupportView from './UnsupportedView';
 
-const CameraRecorder = ({ setText }) => {
+const CameraRecorder = ({ onTranslated }) => {
     return (
         <VideoRecorder
             constraints={{
@@ -22,16 +20,17 @@ const CameraRecorder = ({ setText }) => {
             renderLoadingView={LoadingView}
             renderUnsupportView={UnsupportView}
             onRecordingComplete={async (videoBlob) => {
-                const file = new File([videoBlob], "video.mp4");
+                const file = new File([videoBlob], 'video.mp4');
                 const formData = new FormData();
-                formData.append("video", file);
+                formData.append('video', file);
 
                 const res = await fetch(`http://161.246.6.44/upload`, {
-                    method: "POST",
+                    method: 'POST',
                     body: formData,
                 });
                 const json = await res.json();
-                setText(json.text);
+
+                onTranslated(json.text);
             }}
         />
     );
