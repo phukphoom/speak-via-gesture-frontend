@@ -6,7 +6,7 @@ const App = () => {
     const [translatedText, setTranslatedText] = useState('คำเเปล ...');
 
     return (
-        <div className="flex w-full h-screen justify-center items-center bg-gray-800 fixed">
+        <div className="flex w-full h-screen justify-center items-center">
             <div className="flex flex-col w-96">
                 <div className="flex h-96">
                     <CameraRecorder
@@ -15,6 +15,7 @@ const App = () => {
                         }}
                     />
                 </div>
+
                 <div className="flex mt-4 h-56">
                     <TranslatedDisplay translatedText={translatedText} />
                 </div>

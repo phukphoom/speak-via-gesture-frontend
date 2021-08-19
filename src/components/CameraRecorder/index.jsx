@@ -5,6 +5,8 @@ import ErrorView from './ErrorView';
 import LoadingView from './LoadingView';
 import UnsupportView from './UnsupportedView';
 
+import { API_URL } from '../../config';
+
 const CameraRecorder = ({ onTranslated }) => {
     return (
         <VideoRecorder
@@ -24,7 +26,7 @@ const CameraRecorder = ({ onTranslated }) => {
                 const formData = new FormData();
                 formData.append('video', file);
 
-                const res = await fetch(`http://161.246.6.44/upload`, {
+                const res = await fetch(`${API_URL}/upload`, {
                     method: 'POST',
                     body: formData,
                 });
